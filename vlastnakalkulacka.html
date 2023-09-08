@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Price Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 10px -5px; /* Add margin between buttons */
+        }
+
+        button {
+            font-size: 16px;
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button.reset {
+            background-color: #FF5733;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Price Calculator</h1>
+    <p>Click the buttons to add items to the total:</p>
+
+    <div class="button-container">
+        <button onclick="addItem('Item 1', 10)">Item 1 ($10)</button>
+        <button onclick="addItem('Item 2', 20)">Item 2 ($20)</button>
+        <button onclick="addItem('Item 3', 30)">Item 3 ($30)</button>
+        <button onclick="addItem('Item 4', 40)">Item 4 ($40)</button>
+        <button onclick="addItem('Item 5', 50)">Item 5 ($50)</button>
+        <button onclick="addItem('Item 6', 60)">Item 6 ($60)</button>
+    </div>
+    
+    <h2>Total: $<span id="total">0</span></h2>
+    
+    <button class="reset" onclick="resetTotal()">Reset</button>
+
+    <script>
+        // Initialize the total price
+        let totalPrice = 0;
+
+        // Function to add an item's price to the total
+        function addItem(itemName, itemPrice) {
+            // Add the item's price to the total
+            totalPrice += itemPrice;
+
+            // Update the total displayed on the page
+            const totalElement = document.getElementById('total');
+            totalElement.textContent = totalPrice;
+            
+            // You can also display a message indicating which item was added
+            console.log(`${itemName} added to the total. Total price: $${totalPrice}`);
+        }
+
+        // Function to reset the total price to 0
+        function resetTotal() {
+            // Reset the total price
+            totalPrice = 0;
+
+            // Update the total displayed on the page
+            const totalElement = document.getElementById('total');
+            totalElement.textContent = totalPrice;
+        }
+    </script>
+</body>
+</html>
