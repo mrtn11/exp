@@ -19,11 +19,11 @@
             font-size: 16px;
         }
 
-        .button-container {
+        /* Create a container for rows of buttons */
+        .button-row {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            margin: 10px -5px; /* Add margin between buttons */
+            margin: 10px 0;
         }
 
         button {
@@ -59,32 +59,21 @@
     </style>
 </head>
 <body>
-    <h1>Simple Price Calculator</h1>
-    <p>Click the buttons to add items to the total:</p>
+    <h2>Total: €<span id="total">0.00</span></h2>
 
-    <div class="button-container">
+    <!-- Create rows of buttons -->
+    <div class="button-row">
         <button onclick="addItem(this)" style="background-color: rgb(255, 136, 0)">Pivo Velke (1.50€)</button>
         <button onclick="addItem(this)" style="background-color: rgb(255, 136, 0)">Pivo Male (1.00€)</button>
         <button onclick="addItem(this)" style="background-color: rgb(37, 37, 37)">Kofola Velka (1.00€)</button>
+        </div>
+
+    <div class="button-row">
         <button onclick="addItem(this)" style="background-color: rgb(37, 37, 37)">Kofola Mala (0.60€)</button>
         <button onclick="addItem(this)">Kiwi 1dcl (0.10€)</button>
         <button onclick="addItem(this)">Vino 1dcl (0.50€)</button>
-        <button onclick="addItem(this)">Nic Bor Sliv (1.00€)</button>
-        <button onclick="addItem(this)">Fernet (1.50€)</button>
-        <button onclick="addItem(this)">Jagermeister (2.00€)</button>
-        <button onclick="addItem(this)">Finlandia (2.00€)</button>
-        <button onclick="addItem(this)">Jack Daniels (2.50€)</button>
-        <button onclick="addItem(this)">Dzus Lievany 1dcl (0.50€)</button>
-        <button onclick="addItem(this)">Sprite 1dcl (0.20€)</button>
-        <button onclick="addItem(this)">Tonic 1dcl (0.20€)</button>
-        <button onclick="addItem(this)">Magnesia 1dcl (0.10€)</button>
-        <button onclick="addItem(this)">Zlaty Bazant plech (1.50€)</button>
-        <button onclick="addItem(this)">Dzus Krabicka (0.80€)</button>
-        <button onclick="addItem(this)">CapriSun (0.80€)</button>
-        <button onclick="addItem(this)">Hell Energy (1.00€)</button>
-    </div>
+        </div>
     
-    <h2>Total: €<span id="total">0.00</span></h2>
 
     <div id="item-summary">
         <h3>Items Summary</h3>
