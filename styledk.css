@@ -1,0 +1,263 @@
+.main-title {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center; 
+    flex-direction: column;
+    font-family: "Tilt Warp", sans-serif;
+    font-size: 3vw; 
+    color: white;
+  }
+  .sub-title {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center; 
+    flex-direction: column;
+    font-family: "Tilt Warp", sans-serif; 
+    font-size: 1vw; 
+    color: #bbbbbb;
+  }
+
+.body {
+    background-image: url('https://img.freepik.com/free-vector/gradient-hexagonal-background_23-2148955974.jpg'); /* Replace 'your-background-image.jpg' with the path to your image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    /* Optionally, you can add more styles like background-repeat, background-attachment, etc. */
+  }
+
+.grid-main-page{
+  display: flex;
+}
+.left-content{
+  width: 50%;
+}
+.right-content{
+  width: 50%;
+}
+.grid-container-element { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+    grid-gap: 1px; 
+    margin-left: 10%;
+    margin-right: 10%;
+} 
+.grid-child-element { 
+    margin: 3px;   
+    background-color: #E2E2E2;
+    border-radius: 8px;
+}
+
+.grid-child-element.left {
+    grid-column-start: 1; /* Adjusts the start position of this element */
+   /* margin-left: 20%;*/
+}
+.grid-child-element.right {
+ /* margin-right: 20%;*/
+}
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr /*1fr*/;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    row-gap: 0;
+    margin: 5px;
+    }
+    
+
+.div3 { grid-area: 2 / 2 / 3 / 3; }
+/* .div4 { grid-area: 3 / 2 / 4 / 3; }*/
+
+.route {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 40.8px;
+}
+
+.route.name {
+  grid-area: 1 / 1 / 2 / 3;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #606060;
+  font-size: 22px;
+  font-family: "Tilt Warp", sans-serif;
+}
+
+.route.number {
+  grid-area: 2 / 1 / 3 /*4*/ / 2;
+  text-align: right; 
+  font-size: 50px; 
+  color: #373737;
+  
+}
+
+.route-info {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 19.8px;
+  font-size: 17px; 
+  color: #6f6f6f;
+}
+
+.grid-container-vehicle { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 10px; 
+  margin-left: 10%;
+  margin-right: 10%;
+} 
+.grid-child-vehicle { 
+  margin: 0px; 
+  background-color: #E2E2E2;
+  border-radius: 8px;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 600;
+  font-size: 50px; 
+  color: #373737;
+  text-align: center;
+}
+
+.grid-child-vehicle.left{
+  
+}
+
+.grid-child-vehicle.mid{
+  
+}
+
+.grid-child-vehicle.right{
+  
+}
+
+.grid-child-vehicle.final{
+  grid-area: 3 / 2 / 4 / 4;
+  background-color: transparent;
+}
+
+.count-cars{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 0px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.count-cars-number{
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif; font-size: 54px; font-style: normal; font-variant: normal; font-weight: 600; 
+  font-size: 12em; /* Adjust size as needed */
+  grid-area: 1 / 2 / 3 / 3;
+  color: #079af9;
+}
+
+.count-cars-info{
+  align-items: center;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif; 
+  font-size: 69px; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 600; 
+  line-height: 111.8px;
+  text-align: right;
+  justify-content: flex-end;
+  color: red;
+}
+
+.count-cars-name{
+  margin-right: 10%;
+  text-align: right;
+  color: white;
+  font-size: 2em;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+.vehicle-stats{
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.general-info{
+  grid-area: 1 / 2 / 2 / 4;
+  text-align: right;
+  border-radius: 8px;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-size: 24px; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 700;
+  font-size: 1.4em; 
+  color: white;
+}
+
+.stat-difference{
+  margin: 0px; 
+  background-color: #E2E2E2;
+  border-radius: 8px;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 600;
+  font-size: 30px; 
+  color: #373737;
+  text-align: center;
+}
+
+.traffic-news-head{
+  font-size: 1.9em;
+  font-family: "Tilt Warp", sans-serif;
+  color: white;
+  margin-left: 10%;
+}
+
+.traffic-news-body{
+  display: grid;
+  grid-template-columns: 0.3fr 1.7fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 7px;
+  grid-row-gap: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.message{
+  font-size: 2.1em;
+  border-radius: 6px;
+  text-align: center;
+  color: white;
+  font-family: "Tilt Warp", sans-serif;
+}
+
+.message.incdt{
+  background-color: red;
+}
+
+.message.alert{
+  background-color: red;
+}
+
+.message.msp{
+  background-color: #0370cb;
+}
+
+.message.ai{
+  background-color: #cc03c1;
+}
+
+.message-source{
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-size: 1em;
+  color: #bbbbbb;
+}
+
+.message-text{
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-size: 1.2em;
+  color: white;
+}
