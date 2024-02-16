@@ -1,174 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Price Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
+<meta charset=”utf-8″>
+<link rel="stylesheet" href="styledk.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Belanosima:wght@400;600;700&family=Concert+One&family=Didact+Gothic&family=Quicksand:wght@300..700&family=Squada+One&family=Tilt+Warp&family=Timmana&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<title>Dolný Kubín</title>
 
-        h1 {
-            font-size: 24px;
-        }
+<style>
+    body {
+      background-image: url('Untitled3.png');
+      background-size: cover; 
+      background-position: center; 
+    }
+  </style>
 
-        p {
-            font-size: 16px;
-        }
-
-        /* Create a container for rows of buttons */
-        .button-row {
-            display: flex;
-            justify-content: center;
-            margin: 10px 0;
-        }
-
-        button {
-            font-size: 16px;
-            margin: 5px;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            touch-action: manipulation;
-        }
-
-        button.reset {
-            background-color: #FF5733;
-        }
-
-        h2 {
-            font-size: 24px;
-            margin-top: 20px;
-        }
-
-        #item-summary {
-            font-size: 18px;
-            margin-top: 20px;
-        }
-
-        /* Remove list-style properties for the item summary list */
-        #summary-list {
-            list-style: none;
-            padding: 0;
-        }
-    </style>
 </head>
 <body>
-    <h2>Total: €<span id="total">0.00</span></h2>
-
-    <!-- Create rows of buttons -->
-    <div class="button-row">
-        <button onclick="addItem(this)" style="background-color: rgb(255, 136, 0)">Pivo Velke (1.50€)</button>
-        <button onclick="addItem(this)" style="background-color: rgb(255, 136, 0)">Pivo Male (1.00€)</button>
-        <button onclick="addItem(this)" style="background-color: rgb(37, 37, 37)">Kofola Velka (1.50€)</button>
-        </div>
-
-    <div class="button-row">
-        <button onclick="addItem(this)" style="background-color: rgb(37, 37, 37)">Kofola Mala (0.90€)</button>
-        <button onclick="addItem(this)">Kiwi 1dcl (0.20€)</button>
-    <!--    <button onclick="addItem(this)">Vino 1dcl (0.50€)</button>-->
-        </div>
-   <!-- <div class="button-row">
-        <button onclick="addItem(this)" style="background-color: rgb(0, 110, 74)">Nic Bor Sliv (1.00€)</button>
-        <button onclick="addItem(this)" style="background-color: rgb(0, 110, 74)">Fernet (1.50€)</button>
-        <button onclick="addItem(this)" style="background-color: rgb(0, 110, 74)">Jagermeister (2.00€)</button>
-        </div>
-    <div class="button-row">
-        <button onclick="addItem(this)" style="background-color: rgb(0, 110, 74)">Finlandia (2.00€)</button>
-        <button onclick="addItem(this)" style="background-color: rgb(0, 110, 74)">Jack Daniels (2.50€)</button>
-        <button onclick="addItem(this)" style="background-color: rgb(211, 127, 0)">Dzus Lievany 1dcl (0.50€)</button>
-        </div>        
-    <div class="button-row">
-        <button onclick="addItem(this)">Sprite 1dcl (0.20€)</button>
-        <button onclick="addItem(this)">Tonic 1dcl (0.20€)</button>
-        <button onclick="addItem(this)">Magnesia 1dcl (0.10€)</button>
-        </div>   
-    <div class="button-row">
-        <button onclick="addItem(this)">Zlaty Bazant plech (1.50€)</button>
-        <button onclick="addItem(this)">Dzus Krabicka (0.80€)</button>
-        <button onclick="addItem(this)">CapriSun (0.80€)</button>
-        </div> 
-    <div class="button-row">
-        <button onclick="addItem(this)">Hell Energy (1.00€)</button>
-    </div> -->
-    
-
-    <div id="item-summary">
-        <h3>Items Summary</h3>
-        <ul id="summary-list">
-        </ul>
+    <div class="main-title" >
+        Dopravná situácia Dolný Kubín
+      </div>
+    <div class="sub-title">
+        Dataview ID: 004 | Aktualizované 20.8.2023 o 05:22:03
     </div>
-    
-    <button class="reset" onclick="resetTotal()">Reset</button>
-
-    <script>
-        // Initialize the total price and item summary object
-        let totalPrice = 0;
-        const itemSummary = {};
-
-        // Function to add an item's price to the total and update item summary
-        function addItem(button) {
-            const itemName = button.textContent; // Get the button's text content
-            const priceMatches = itemName.match(/\d+\.\d+/); // Extract the price from the text using regex
-
-            if (priceMatches) {
-                const itemPrice = parseFloat(priceMatches[0]); // Convert the matched price to a float
-
-                // Add the item's price to the total
-                totalPrice += itemPrice;
-
-                // Update the total displayed on the page with two decimal places
-                const totalElement = document.getElementById('total');
-                totalElement.textContent = totalPrice.toFixed(2);
-
-                // Update the item summary
-                if (itemSummary[itemName]) {
-                    itemSummary[itemName]++;
-                } else {
-                    itemSummary[itemName] = 1;
-                }
-
-                // Update the item summary displayed on the page
-                updateItemSummary();
-
-                // You can also display a message indicating which item was added
-                console.log(`${itemName} added to the total. Total price: €${totalPrice.toFixed(2)}`);
-            }
-        }
-
-        // Function to reset the total price to 0 and clear the item summary
-        function resetTotal() {
-            // Reset the total price
-            totalPrice = 0;
-
-            // Reset the item summary
-            for (const item in itemSummary) {
-                delete itemSummary[item];
-            }
-
-            // Update the total and item summary displayed on the page
-            const totalElement = document.getElementById('total');
-            totalElement.textContent = totalPrice.toFixed(2);
-            updateItemSummary();
-        }
-
-        // Function to update the item summary displayed on the page
-        function updateItemSummary() {
-            const summaryList = document.getElementById('summary-list');
-            summaryList.innerHTML = '';
-
-            for (const item in itemSummary) {
-                const listItem = document.createElement('li');
-                listItem.textContent = `${item}: ${itemSummary[item]} times`;
-                summaryList.appendChild(listItem);
-            }
-        }
-    </script>
+<div class="grid-main-page">
+    <div class="left-content">
+        <div class="grid-container-element">
+            <div class="grid-child-element left">
+                <div class="parent">
+                    <div class="route name">ŽILINA<i class="material-icons" style="font-size:25px; vertical-align:-0.3cap; color: #969696;">arrow_forward</i>DOLNÝ KUBÍN</div>
+                    <div class="route number">1224</div>
+                    <div class="route-info"> 
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">schedule</i> 7m 45s<br>
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">speed</i> 22,1 km/h
+                    </div>
+                </div>
+            </div>
+            <div class="grid-child-element right">
+                <div class="parent">
+                    <div class="route name">DOLNÝ KUBÍN<i class="material-icons" style="font-size:25px; vertical-align:-0.3cap; color: #969696;">arrow_forward</i>ŽILINA</div>
+                    <div class="route number">1388</div>
+                    <div class="route-info"> 
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">schedule</i> 7m 45s<br>
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">speed</i> 17,5 km/h
+                    </div>
+                </div>
+            </div>
+            <div class="grid-child-element left">
+                <div class="parent">
+                    <div class="route name">RUŽOMBEROK<i class="material-icons" style="font-size:25px; vertical-align:-0.3cap; color: #969696;">arrow_forward</i>DOLNÝ KUBÍN</div>
+                    <div class="route number">1421</div>
+                    <div class="route-info"> 
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">schedule</i> 7m 45s<br>
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">speed</i> 22,1 km/h
+                    </div>
+                </div>
+            </div>
+            <div class="grid-child-element right">
+                <div class="parent">
+                    <div class="route name">DOLNÝ KUBÍN<i class="material-icons" style="font-size:25px; vertical-align:-0.3cap; color: #969696;">arrow_forward</i>RUŽOMBEROK</div>
+                    <div class="route number">1089</div>
+                    <div class="route-info"> 
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">schedule</i> 7m 45s<br>
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">speed</i> 17,5 km/h
+                    </div>
+                </div>
+            </div>
+            <div class="grid-child-element left">
+                <div class="parent">
+                    <div class="route name">NÁMESTOVO<i class="material-icons" style="font-size:25px; vertical-align:-0.3cap; color: #969696;">arrow_forward</i>DOLNÝ KUBÍN</div>
+                    <div class="route number">1921</div>
+                    <div class="route-info"> 
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">schedule</i> 7m 45s<br>
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">speed</i> 22,1 km/h
+                    </div>
+                </div>
+            </div>
+            <div class="grid-child-element right" style="background-color: #fc9293;">
+                <div class="parent">
+                    <div class="route name">DOLNÝ KUBÍN<i class="material-icons" style="font-size:25px; vertical-align:-0.3cap; color: #969696;">arrow_forward</i>NÁMESTOVO</div>
+                    <div class="route number">988</div>
+                    <div class="route-info"> 
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">schedule</i> 7m 45s<br>
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">speed</i> 17,5 km/h
+                    </div>
+                </div>
+            </div>
+            <div class="grid-child-element left" style="background-color: #fc9293;">
+                <div class="parent">
+                    <div class="route name">GECEĽ/PORUBA<i class="material-icons" style="font-size:25px; vertical-align:-0.3cap; color: #969696;">arrow_forward</i>DOLNÝ KUBÍN</div>
+                    <div class="route number">724</div>
+                    <div class="route-info"> 
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">schedule</i> 7m 45s<br>
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">speed</i> 22,1 km/h
+                    </div>
+                </div>
+            </div>
+            <div class="grid-child-element right">
+                <div class="parent">
+                    <div class="route name">DOLNÝ KUBÍN<i class="material-icons" style="font-size:25px; vertical-align:-0.3cap; color: #969696;">arrow_forward</i>GECEĽ/PORUBA</div>
+                    <div class="route number">755</div>
+                    <div class="route-info"> 
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">schedule</i> 7m 45s<br>
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">speed</i> 17,5 km/h
+                    </div>
+                </div>
+            </div>
+            <div class="grid-child-element left">
+                <div class="parent">
+                    <div class="route name">DOLNÝ KUBÍN<i class="material-icons" style="font-size:25px; vertical-align:-0.3cap; color: #969696;">arrow_forward</i>MOKRAĎ</div>
+                    <div class="route number">1311</div>
+                    <div class="route-info"> 
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">schedule</i> 7m 45s<br>
+                        <i class="material-icons" style="font-size:21px; vertical-align: bottom;">speed</i> 17,5 km/h
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="grid-container-vehicle">
+            <div class="grid-child-vehicle left" style="color: #cd9e05;">
+                <i class="material-icons" style="font-size:60px; vertical-align:-0.3cap;">airport_shuttle</i> 443              
+            </div>
+            <div class="grid-child-vehicle mid" style="color: #478ffd;">
+                <i class="material-icons" style="font-size:60px; vertical-align:-0.3cap;">motorcycle</i>1129
+            </div>
+            <div class="grid-child-vehicle right" style="color: #3b9600">
+                <i class="material-icons" style="font-size:55px; vertical-align:-0.22cap;">directions_car</i> 238 
+            </div>
+            <div class="grid-child-vehicle left">
+                <span style="font-size: 0.28em;color: black;position: absolute;margin-top: 16px;left: 7%;">Nemotorické <br> vozidlo</span>
+                <i class="material-icons" style="font-size:55px; vertical-align:-0.22cap; color: #969696;">bike_scooter</i> 129</div>
+            <div class="grid-child-vehicle mid" style="color: #dd416c">
+                <i class="material-icons" style="font-size:55px; vertical-align:-0.22cap;">pedal_bike</i> 001</div>
+            <div class="grid-child-vehicle right" style="color: #e715dc;">
+                <i class="material-icons" style="font-size:55px; vertical-align:-0.22cap;">local_shipping</i> 038</div>
+            <div class="grid-child-vehicle left">
+                <span style="font-size: 0.28em;color: black;position: absolute;margin-top: 16px;left: 6.4%;">Nedefinované<br> vozidlo</span>
+                <i class="material-icons" style="font-size:55px; vertical-align:-0.22cap; color: #969696;" aria-label="Nemotorické vozidlo">directions_car</i> 002</div>
+            <div class="grid-child-vehicle final" style="font-size: 40px; color: #adacac; font-weight: lighter; line-height: 1.5;">za posledných 30 min</div>
+        </div>
+    </div>
+    <div class="right-content">
+        <div class="count-cars">           
+            <div class="count-cars-info">
+                <span style="font-family: Concert One, sans-serif; font-weight: lighter;">↓</span>
+                <br>
+                5,6<span style="font-family: Tilt Warp, sans-serif; font-weight: lighter;">%</span>
+            </div>
+            <div class="count-cars-number">
+                21332
+            </div>
+        </div>
+        <div class="count-cars-name">
+            predpokladaný počet vozidiel v meste
+        </div>
+        <br>
+        <div class="vehicle-stats">
+            <div class="stat-difference"> 
+                20333 <span style="color: red;">+3,3</span><span style="color: red; font-family: Tilt Warp, sans-serif; font-weight: lighter;">%</span>
+                <div style="font-size: 18px; margin-bottom: 3%;">Rozdiel daného dňa -7 dní</div>
+            </div>
+            <div class="general-info">
+                Priemerný čas prejazdu je 18m 33s
+                <br>
+                Priemerná rýchlosť prejazdu 22km/h
+            </div>
+            <div class="stat-difference">
+                18233 <span style="color: green;">-12,1</span><span style="color: green; font-family: Tilt Warp, sans-serif; font-weight: lighter;">%</span>
+                <div style="font-size: 18px; margin-bottom: 3%;">Rozdiel od mesačného priemeru</div>
+            </div>
+            <div class="stat-difference">
+                4233 <span style="color: green;">-10,1</span><span style="color: green; font-family: Tilt Warp, sans-serif; font-weight: lighter;">%</span>
+                <div style="font-size: 18px; margin-bottom: 3%;">Nákladné vozidlá</div>
+            </div>
+            <div class="stat-difference">
+                12223 <span style="color: green;">-10,1</span><span style="color: green; font-family: Tilt Warp, sans-serif; font-weight: lighter;">%</span>
+                <div style="font-size: 18px; margin-bottom: 3%;">Osobné vozidlá</div>
+            </div>
+        </div>
+        <br><br>
+        <div class="traffic-news-head">Správy doprava</div><br>
+        <div class="traffic-news-body">
+            <div class="message incdt">INCDT</div>
+            <div class="div2">
+                <div class="message-source">Vytvorené: 13.3.2023 užívateľom MSP</div>
+                <div class="message-text">Hľadané vozidlo bolo videné o 15:44:32 na kamere č.12 ID:33223</div>
+            </div>
+            <div class="message alert">ALERT</div>
+            <div class="div4">
+                <div class="message-source">Vytvorené: 13.3.2023 užívateľom MSP</div>
+                <div class="message-text">Prekročil sa parameter počtu nákladných vozidiel</div>
+            </div>
+            <div class="message msp">MSP</div>
+            <div class="div6">
+                <div class="message-source">Vytvorené AI 13.3.2023 užívateľom MSP</div>
+                <div class="message-text">Dopravná nehoda na Sihoti 2</div>
+            </div>
+            <div class="message ai">AI</div>
+            <div class="div8">
+                <div class="message-source">Vytvorené AI 13.3.2023 užívateľom AI</div>
+                <div class="message-text">Očakávaná nehodovosť +13% o 1hod 13min</div>
+            </div>
+            <div class="message ai">AI</div>
+            <div class="div10">
+                <div class="message-source">Vytvorené AI 13.3.2023 užívateľom AI</div>
+                <div class="message-text">Očakávajte zápchu na ceste E77</div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
