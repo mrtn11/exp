@@ -1,34 +1,21 @@
 .main-title {
     flex: 0 0 auto;
-    width: 100%;
     height: 60px;
     display: flex;
     align-items: center;
-    flex-direction: column;
     justify-content: center; 
-    flex-direction: column;
-    font-family: "Tilt Warp", sans-serif;
+    font-family: "Fira Sans", sans-serif;
     font-size: 3vw; 
     color: white;
   }
   .sub-title {
-    width: 100%;
     height: 40px;
     display: flex;
     align-items: center;
-    flex-direction: column;
     justify-content: center; 
-    flex-direction: column;
-    font-family: "Tilt Warp", sans-serif; 
+    font-family: "Fira Sans", sans-serif; 
     font-size: 1vw; 
     color: #bbbbbb;
-  }
-
-.body {
-    background-image: url('https://img.freepik.com/free-vector/gradient-hexagonal-background_23-2148955974.jpg'); /* Replace 'your-background-image.jpg' with the path to your image */
-    background-size: cover; /* Cover the entire viewport */
-    background-position: center; /* Center the image */
-    /* Optionally, you can add more styles like background-repeat, background-attachment, etc. */
   }
 
 .grid-main-page{
@@ -54,13 +41,6 @@
     border-radius: 8px;
 }
 
-.grid-child-element.left {
-    grid-column-start: 1; /* Adjusts the start position of this element */
-   /* margin-left: 20%;*/
-}
-.grid-child-element.right {
- /* margin-right: 20%;*/
-}
 .parent {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -76,7 +56,10 @@
 /* .div4 { grid-area: 3 / 2 / 4 / 3; }*/
 
 .route {
-  font-family: "Avant Garde", Avantgarde, "Century Gothic"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 40.8px;
+  font-family: "Fira Sans", sans-serif; 
+  font-size: 24px; 
+  font-weight: 700; 
+  line-height: 40.8px;
 }
 
 .route.name {
@@ -86,7 +69,6 @@
   text-align: center;
   color: #606060;
   font-size: 22px;
-  font-family: "Tilt Warp", sans-serif;
 }
 
 .route.number {
@@ -98,9 +80,22 @@
 }
 
 .route-info {
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 19.8px;
+  font-family: "Fira Sans", sans-serif; 
+  font-weight: 600; 
+  line-height: 19.8px;
   font-size: 17px; 
   color: #6f6f6f;
+}
+
+#arrow_forward{
+  font-size:25px; 
+  vertical-align:-0.3cap; 
+  color: #969696;
+}
+
+#speed_schedule{
+  font-size:21px;
+  vertical-align: bottom;
 }
 
 .grid-container-vehicle { 
@@ -115,27 +110,68 @@
   margin: 0px; 
   background-color: #E2E2E2;
   border-radius: 8px;
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 600;
-  font-size: 50px; 
+  font-family: "Fira Sans", sans-serif; 
+  font-weight: 600;
+  font-size: 60px; 
   color: #373737;
   text-align: center;
 }
 
-.grid-child-vehicle.left{
-  
+#bus{
+  font-size: 60px;
+  vertical-align: -0.3cap;
+}
+#motorcycle{
+  font-size:60px; 
+  vertical-align:-0.3cap;
+}
+#car{
+  font-size:55px; 
+  vertical-align:-0.22cap;
+}
+#bikeScooter{
+  font-size:55px; 
+  vertical-align:-0.22cap; 
+  color: #969696;
+}
+#pedal_bike{
+  font-size:55px; 
+  vertical-align:-0.22cap;
+}
+#truck{
+  font-size:55px; 
+  vertical-align:-0.22cap;
+}
+#car2{
+  font-size:55px; 
+  vertical-align:-0.22cap; 
+  color: #969696;
 }
 
-.grid-child-vehicle.mid{
-  
+#vehicleText1{
+  font-size: 0.24em;
+  color: black;
+  position: absolute;
+  margin-top: 16px;
+  left: 6.6%;
 }
 
-.grid-child-vehicle.right{
-  
+#vehicleText2{
+  font-size: 0.24em;
+  color: black;
+  position: absolute;
+  margin-top: 16px;
+  left: 6.3%;
 }
 
 .grid-child-vehicle.final{
   grid-area: 3 / 2 / 4 / 4;
   background-color: transparent;
+  font-size: 45px; 
+  color: #adacac; 
+  font-weight: 300; 
+  line-height: 1.5;
+  padding-top: 1%;
 }
 
 .count-cars{
@@ -149,20 +185,19 @@
 }
 
 .count-cars-number{
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif; font-size: 54px; font-style: normal; font-variant: normal; font-weight: 600; 
-  font-size: 12em; /* Adjust size as needed */
+  font-family: "Fira Sans", sans-serif; 
+  font-weight: 600; 
+  font-size: 14em; /* Adjust size as needed */
   grid-area: 1 / 2 / 3 / 3;
   color: #079af9;
 }
 
 .count-cars-info{
   align-items: center;
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif; 
-  font-size: 69px; 
-  font-style: normal; 
-  font-variant: normal; 
+  font-family: "Fira Sans", sans-serif; 
+  font-size: 79px; 
   font-weight: 600; 
-  line-height: 111.8px;
+  padding-top:34px;
   text-align: right;
   justify-content: flex-end;
   color: red;
@@ -173,7 +208,7 @@
   text-align: right;
   color: white;
   font-size: 2em;
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: "Fira Sans", sans-serif;
 }
 
 .vehicle-stats{
@@ -190,10 +225,7 @@
   grid-area: 1 / 2 / 2 / 4;
   text-align: right;
   border-radius: 8px;
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-  font-size: 24px; 
-  font-style: normal; 
-  font-variant: normal; 
+  font-family: "Fira Sans", sans-serif;
   font-weight: 700;
   font-size: 1.4em; 
   color: white;
@@ -203,17 +235,24 @@
   margin: 0px; 
   background-color: #E2E2E2;
   border-radius: 8px;
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 600;
+  font-family: "Fira Sans", sans-serif; 
+  font-weight: 600;
   font-size: 30px; 
   color: #373737;
   text-align: center;
 }
 
+.stat-sub-text{
+  font-size: 18px; 
+  margin-bottom: 3%;
+}
+
 .traffic-news-head{
   font-size: 1.9em;
-  font-family: "Tilt Warp", sans-serif;
+  font-family: "Fira Sans", sans-serif;
   color: white;
   margin-left: 10%;
+  font-weight: 600;
 }
 
 .traffic-news-body{
@@ -227,11 +266,13 @@
 }
 
 .message{
-  font-size: 2.1em;
+  font-size: 1.8em;
   border-radius: 6px;
   text-align: center;
   color: white;
-  font-family: "Tilt Warp", sans-serif;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 800;
+  padding-top:4px;
 }
 
 .message.incdt{
@@ -251,13 +292,140 @@
 }
 
 .message-source{
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: "Fira Sans", sans-serif;
   font-size: 1em;
   color: #bbbbbb;
 }
 
 .message-text{
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-  font-size: 1.2em;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.4em;
   color: white;
+}
+
+@media only screen and (max-width: 1280px) {
+
+  .main-title{
+    margin-bottom:0.3%;
+    height:auto;
+  }
+  .sub-title{
+    height: 0px;
+    margin-bottom: 1%;
+  }
+  .grid-container-element{
+    grid-gap: 0px;
+    margin-bottom: 1%;
+    margin-right: 5%;
+  }
+  .parent {
+    margin: 0px;
+    }
+  .route.name{
+    font-size: 15px;
+  }
+  .route.number{
+    font-size: 45px;
+  }
+
+  .grid-child-vehicle{
+    padding-top: 5px;
+  }
+
+  .grid-container-vehicle{
+    grid-gap: 4px;
+    margin-right: 5%;
+  }
+  .grid-child-vehicle{
+    font-size: 38px;
+  }
+  .grid-child-vehicle.final{
+    font-size: 30px;
+    padding-top: 2%;
+  }
+  #vehicleText1{
+    left: 6.9%;
+    margin-top: 12px;
+    font-size: 0.28em;
+  }
+  #vehicleText2{
+    left: 7.1%;
+    margin-top: 12px;
+    font-size: 0.26em;
+  }
+  #bus {
+    font-size: 50px;
+  }
+  #motorcycle{
+    font-size:50px; 
+    vertical-align:-0.3cap;
+  }
+  #car{
+    font-size:45px; 
+    vertical-align:-0.22cap;
+  }
+  #bikeScooter{
+    font-size:45px; 
+    vertical-align:-0.22cap; 
+    color: #969696;
+  }
+  #pedal_bike{
+    font-size:45px; 
+    vertical-align:-0.22cap;
+  }
+  #truck{
+    font-size:45px; 
+    vertical-align:-0.22cap;
+  }
+  #car2{
+    font-size:45px; 
+    vertical-align:-0.22cap; 
+    color: #969696;
+  }
+  .count-cars{
+    margin-left: 5%;
+  }
+  .count-cars-number{
+    font-size: 131px;
+  }
+  .count-cars-info{
+    line-height: 1.1;
+    font-size: 50px;
+    padding-top: 11.5%;
+  }
+  .count-cars-name{
+    font-size: 20px;
+  }
+  .vehicle-stats{
+    margin-left: 5%;
+  }
+  .traffic-news-head{
+    margin-left: 5%;
+    font-size: 28px;
+  }
+  .general-info{
+    font-size: 19px;
+  }
+  .stat-difference{
+    font-size: 26px;
+  }
+  .stat-sub-text{
+    font-size: 13px; 
+    margin-bottom: 3%;
+  }
+  .traffic-news-body{
+    margin-left: 5%;
+  }
+  .message{
+    font-size:20px;
+    padding-top:5px;
+    font-weight: 800;
+  }
+  .message-source{
+    font-size: 14px;
+  }
+  .message-text{
+    font-size:15px;
+  }
+
 }
