@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Price Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        /* Create a container for rows of buttons */
+        .button-row {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        button {
+            font-size: 16px;
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        button.reset {
+            background-color: #FF5733;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        #item-summary {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        /* Remove list-style properties for the item summary list */
+        #summary-list {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Total: €<span id="total">0.00</span></h2>
+
+    <!-- Create rows of buttons -->
+    <div class="button-row">
+        <button onclick="addItem(this)" style="background-color: rgb(255, 136, 0)">Pivo Velke (2.00€)</button>
+        <button onclick="addItem(this)" style="background-color: rgb(255, 136, 0)">Pivo Male (1.50€)</button>
+        <button onclick="addItem(this)" style="background-color: rgb(37, 37, 37)">Kofola Velka (1.50€)</button>
+        </div>
+
+    <div class="button-row">
+        <button onclick="addItem(this)" style="background-color: rgb(37, 37, 37)">Kofola Mala (1.00€)</button>
+      <!--  <button onclick="addItem(this)">Spiš Nicolus KB (1.50€)</button>-->
+        <button onclick="addItem(this)">Vino 1dcl (1.00€)</button>
+        </div>
+    <div class="button-row">
+        <button onclick="addItem(this)" style="background-color: rgb(0, 110, 74)">Spiš Nicolaus KB (1.50€)</button>
+        <button onclick="addItem(this)" style="background-color: rgb(0, 110, 74)">Abs Jäg Fern Bech (2.50€)</button>
+        <button onclick="addItem(this)" style="background-color: rgb(0, 110, 74)">Jack Daniels (3.00€)</button>
+        </div>
+   <!-- <div class="button-row">
+        <button onclick="addItem(this)" style="background-color: rgb(0, 110, 74)">Finlandia (2.00€)</button>
+        <button onclick="addItem(this)" style="background-color: rgb(0, 110, 74)">Jack Daniels (2.50€)</button>
+        <button onclick="addItem(this)" style="background-color: rgb(211, 127, 0)">Dzus Lievany 1dcl (0.50€)</button>
+        </div>        -->
+    <div class="button-row">
+        <button onclick="addItem(this)">Magnesia 1dcl (0.20€)</button>
+        <button onclick="addItem(this)" style="background-color: #62B43A">Sprite 1dcl (0.30€)</button>
+        <button onclick="addItem(this)" style="background-color: rgb(211, 127, 0)">Dzus Lievany 1dcl (1.00€)</button>
+        
+        </div>   
+    <!--<div class="button-row">
+        <button onclick="addItem(this)">Zlaty Bazant plech (1.50€)</button>
+        <button onclick="addItem(this)">Dzus Krabicka (0.80€)</button>
+        <button onclick="addItem(this)">CapriSun (0.80€)</button>
+        </div> 
+    <div class="button-row">
+        <button onclick="addItem(this)">Hell Energy (1.00€)</button>
+    </div> -->
+    
+
+    <div id="item-summary">
+        <h3>Items Summary</h3>
+        <ul id="summary-list">
+        </ul>
+    </div>
+    
+    <button class="reset" onclick="resetTotal()">Reset</button>
+
+    <script>
+        // Initialize the total price and item summary object
+        let totalPrice = 0;
+        const itemSummary = {};
+
+        // Function to add an item's price to the total and update item summary
+        function addItem(button) {
+            const itemName = button.textContent; // Get the button's text content
+            const priceMatches = itemName.match(/\d+\.\d+/); // Extract the price from the text using regex
+
+            if (priceMatches) {
+                const itemPrice = parseFloat(priceMatches[0]); // Convert the matched price to a float
+
+                // Add the item's price to the total
+                totalPrice += itemPrice;
+
+                // Update the total displayed on the page with two decimal places
+                const totalElement = document.getElementById('total');
+                totalElement.textContent = totalPrice.toFixed(2);
+
+                // Update the item summary
+                if (itemSummary[itemName]) {
+                    itemSummary[itemName]++;
+                } else {
+                    itemSummary[itemName] = 1;
+                }
+
+                // Update the item summary displayed on the page
+                updateItemSummary();
+
+                // You can also display a message indicating which item was added
+                console.log(`${itemName} added to the total. Total price: €${totalPrice.toFixed(2)}`);
+            }
+        }
+
+        // Function to reset the total price to 0 and clear the item summary
+        function resetTotal() {
+            // Reset the total price
+            totalPrice = 0;
+
+            // Reset the item summary
+            for (const item in itemSummary) {
+                delete itemSummary[item];
+            }
+
+            // Update the total and item summary displayed on the page
+            const totalElement = document.getElementById('total');
+            totalElement.textContent = totalPrice.toFixed(2);
+            updateItemSummary();
+        }
+
+        // Function to update the item summary displayed on the page
+        function updateItemSummary() {
+            const summaryList = document.getElementById('summary-list');
+            summaryList.innerHTML = '';
+
+            for (const item in itemSummary) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item}: ${itemSummary[item]} times`;
+                summaryList.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>
